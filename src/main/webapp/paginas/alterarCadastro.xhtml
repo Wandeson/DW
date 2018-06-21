@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/Layout.xhtml">
+
+	<ui:define name="content">
+		<h:form id="form-alterarCadastro">
+			<p:growl showDetail="true" life="5000">
+				<p:autoUpdate />
+			</p:growl>
+			<p:layout fullPage="true">
+			<h1 class="aw-page-title">Alterar Cadastro</h1>
+				<div class="ui-fluid">
+					<div class="ui-g-12">
+
+						<div class="ui-g-4"></div>
+						<div class="ui-g-4" style="margin-top: 50px">
+							<!-- NÃO USE required="true"!  TRATE ESTAS REGRAS DE NEGOCIO NO BACKEND-->
+
+							<div class="ui-g-12">
+								<p:outputLabel value="E-mail:" for="email" />
+								<p:inputText id="email"
+									value="#{alterarCadastroController.email}"></p:inputText>
+							</div>
+
+							<p:separator />
+
+							<div class="ui-g-12">
+								<p:outputLabel value="Nova Senha:" for="novaSenha" />
+								<p:password id="novaSenha"
+									value="#{alterarCadastroController.senha}"></p:password>
+							</div>
+
+							<div class="ui-g-12">
+								<p:outputLabel value="Repita a Senha:" for="repitaSenha" />
+								<p:password id="repitaSenha"
+									value="#{alterarCadastroController.repitaSenha}"></p:password>
+							</div>
+
+							<div class="ui-g-6">
+								<p:commandButton
+									actionListener="#{alterarCadastroController.alterarCadastro}"
+									value="Salvar" icon="fa fa-user-plus"></p:commandButton>
+							</div>
+
+							<div class="ui-g-6">
+								<p:commandButton
+									actionListener="#{alterarCadastroController.voltarCotacao}"
+									process="@this" icon="fa fa-reply" update="@none" value="Voltar"></p:commandButton>
+							</div>
+						</div>
+					</div>
+				</div>
+			</p:layout>
+		</h:form>
+	</ui:define>
+</ui:composition>

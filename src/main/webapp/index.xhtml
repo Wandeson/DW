@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<h:body>
+	<h:form id="form-login">
+
+		<p:growl showDetail="true" life="5000">
+			<p:autoUpdate />
+		</p:growl>
+
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" size="100" header="Norte"></p:layoutUnit>
+			<p:layoutUnit position="south" size="50" header="Sul"></p:layoutUnit>
+			<p:layoutUnit position="center" header="Centro">
+				<div class="ui-fluid">
+					<div class="ui-g-12">
+
+						<div class="ui-g-4"></div>
+						<div class="ui-g-4">
+							<div class="ui-g-12">
+
+								<p:outputLabel value="Login:" for="login" />
+								<p:inputText id="login" value="#{loginController.usuario.login}"></p:inputText>
+
+							</div>
+							<div class="ui-g-12">
+								<p:outputLabel value="Senha:" for="senha" />
+								<p:password id="senha" value="#{loginController.usuario.senha}"></p:password>
+
+							</div>
+							<div class="ui-g-8">
+								<p:commandButton actionListener="#{loginController.login}"
+									value="Logar"></p:commandButton>
+							</div>
+
+							<div class="ui-g-4">
+								<p:commandButton actionListener="#{loginController.insert}"
+									icon="fa fa-refresh"
+									update=":form-login:login,:form-login:senha"></p:commandButton>
+							</div>
+
+							<div class="ui-g-12">
+								<p:outputLabel value="Mater-me Logado:" />
+								<p:selectBooleanCheckbox value="#{none}" />
+							</div>
+
+							<div class="ui-g-12">
+								<p:commandLink value="Esqueceu a senha?"></p:commandLink>
+							</div>
+
+							<div class="ui-g-12">
+								<p:commandButton
+									actionListener="#{loginController.novoCadastro}"
+									value="Cadastro" icon="fa fa-user-plus" process="@this"
+									update="@none"></p:commandButton>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</p:layoutUnit>
+
+		</p:layout>
+	</h:form>
+
+</h:body>
+</html>

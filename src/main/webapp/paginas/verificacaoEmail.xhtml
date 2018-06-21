@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/Layout.xhtml">
+
+	<ui:define name="content">
+		<h:form id="form-verificacaoEmail">
+			<p:growl showDetail="true" life="5000">
+				<p:autoUpdate />
+			</p:growl>
+			<p:layout fullPage="true">
+				<h1 class="aw-page-title">Confirmar Email</h1>
+				<div class="ui-fluid">
+					<div class="ui-g-12">
+
+						<div class="ui-g-4"></div>
+						<div class="ui-g-4" style="margin-top: 50px">
+
+
+							<div class="ui-g-12">
+								<p:outputLabel value="Código de verificação:"
+									for="codigoVerificacao" />
+								<p:inputText id="codigoVerificacao"
+									value="#{verificacaoEmailController.codigoVerificacao}"></p:inputText>
+							</div>
+
+
+							<div class="ui-g-6">
+								<p:commandButton
+									actionListener="#{verificacaoEmailController.verificarEmail}"
+									value="Confirmar" icon="fa fa-check"></p:commandButton>
+							</div>
+
+							<div class="ui-g-6">
+								<p:commandButton
+									actionListener="#{verificacaoEmailController.voltarCotacao}"
+									process="@this" icon="fa fa-reply" update="@none"
+									value="Voltar"></p:commandButton>
+							</div>
+								
+							<div class="ui-g-12" style="margin-top: 10px">
+								<p:outputLabel
+									value="*O código de verificação foi enviado para o respectivo email" />
+
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</p:layout>
+		</h:form>
+	</ui:define>
+</ui:composition>

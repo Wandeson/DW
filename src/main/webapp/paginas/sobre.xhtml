@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/Layout.xhtml">
+
+	<ui:define name="content">
+		<h:form id="form">
+			<p:growl showDetail="true" life="5000">
+				<p:autoUpdate />
+			</p:growl>
+			<h1 class="aw-page-title">Sobre</h1>
+			<p:layout fullPage="true">
+				<div class="ui-fluid">
+
+					<div style="margin-top: 10px">
+						<p:outputLabel
+							value="O DW-Crypto tem o objetivo de capturar e armazenar dados 
+							sobre várias criptomoedas em diferentes fontes. Estes dados são processados com 
+							o foco de fornecer aos investidores de criptomoedas informações relevantes sobre
+							 os montantes transitados entre as moedas. O usuário logado tem acesso a grafos
+							  interativo para melhor visualização das transações entre criptomoedas nas maiores
+							   Exchanges.
+							   Esse sistema foi desenvolvido pelos estudantes na disciplina Desenvolvimento
+							 de Software do curso de Ciência da Computação da UESB." />
+						
+					</div>
+
+				</div>
+			</p:layout>
+		</h:form>
+	</ui:define>
+</ui:composition>

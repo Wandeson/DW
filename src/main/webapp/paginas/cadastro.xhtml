@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<h:body>
+	<h:form id="form-cadastro">
+		<p:growl showDetail="true" life="5000">
+			<p:autoUpdate />
+		</p:growl>
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" size="100" header="Norte"></p:layoutUnit>
+			<p:layoutUnit position="south" size="50" header="Sul"></p:layoutUnit>
+			<p:layoutUnit position="center" header="Centro">
+				<div class="ui-fluid">
+					<div class="ui-g-12">
+
+						<div class="ui-g-4"></div>
+						<div class="ui-g-4">
+
+							<!-- NÃO USE required="true"!  TRATE ESTAS REGRAS DE NEGOCIO NO BACKEND-->
+
+							<div class="ui-g-12">
+								<p:outputLabel value="Login: *" for="login" />
+								<p:inputText id="login"
+									value="#{cadastroController.login}"></p:inputText>
+							</div>
+
+							<div class="ui-g-12">
+								<p:outputLabel value="E-mail: *" for="email" />
+								<p:inputText id="email"
+									value="#{cadastroController.email}">
+								</p:inputText>
+							</div>
+
+							<div class="ui-g-12">
+								<p:outputLabel value="Senha: *" for="senha" />
+								<p:password id="senha" maxlength="16"
+									value="#{cadastroController.senha}"></p:password>
+							</div>
+
+							<div class="ui-g-12">
+								<p:outputLabel value="Repita a Senha: *" for="repitaSenha" />
+								<p:password id="repitaSenha"
+									value="#{cadastroController.repitaSenha}"></p:password>
+							</div>
+
+							<div class="ui-g-6">
+								<p:commandButton
+									actionListener="#{cadastroController.cadastrar}"
+									value="Cadastrar" icon="fa fa-user-plus"></p:commandButton>
+							</div>
+
+							<div class="ui-g-6">
+								<p:commandButton
+									actionListener="#{cadastroController.voltarIndex}"
+									process="@this" update="@none" value="Voltar"></p:commandButton>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</p:layoutUnit>
+
+		</p:layout>
+	</h:form>
+</h:body>
+</html>
